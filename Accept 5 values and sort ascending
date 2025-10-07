@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int numbers[5];
+    int i, j, temp;
+
+    // Accept 5 values from the user
+    printf("Enter 5 numbers:\n");
+    for(i = 0; i < 5; i++) {
+        printf("Enter number %d: ", i + 1);
+        scanf("%d", &numbers[i]);
+    }
+
+    // Sort the numbers in ascending order (Bubble Sort)
+    for(i = 0; i < 5 - 1; i++) {
+        for(j = i + 1; j < 5; j++) {
+            if(numbers[i] > numbers[j]) {
+                temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
+    }
+
+    // Print in ascending order
+    printf("\nNumbers in Ascending Order:\n");
+    for(i = 0; i < 5; i++) {
+        printf("%d ", numbers[i]);
+    }
+
+    // Print in descending order
+    printf("\n\nNumbers in Descending Order:\n");
+    for(i = 4; i >= 0; i--) {
+        printf("%d ", numbers[i]);
+    }
+
+    return 0;
+}
