@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int arr[20], size, i;
+
+    // Input array size
+    printf("Enter number of elements (max 20): ");
+    scanf("%d", &size);
+
+    // Input array elements
+    printf("Enter %d numbers:\n", size);
+    for(i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    if(size == 0) {
+        printf("Array is already empty!\n");
+        return 0;
+    }
+
+    // Delete last element
+    size--; // Reduce array size
+
+    // Print array after deletion
+    printf("\nArray after deleting last element:\n");
+    for(i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
