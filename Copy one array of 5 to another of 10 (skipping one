@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int A[5], B[10];
+    int i, j;
+
+    // Input 5 values into array A
+    printf("Enter 5 numbers:\n");
+    for(i = 0; i < 5; i++) {
+        printf("A[%d] = ", i);
+        scanf("%d", &A[i]);
+    }
+
+    // Initialize array B with 0 (or any default value)
+    for(i = 0; i < 10; i++) {
+        B[i] = 0;
+    }
+
+    // Copy elements from A to B, skipping one index
+    j = 0;
+    for(i = 0; i < 5; i++) {
+        B[j] = A[i];
+        j += 2; // Skip one index each time
+    }
+
+    // Print both arrays
+    printf("\nArray A (Original):\n");
+    for(i = 0; i < 5; i++) {
+        printf("%d ", A[i]);
+    }
+
+    printf("\n\nArray B (After Copying with Skip):\n");
+    for(i = 0; i < 10; i++) {
+        printf("%d ", B[i]);
+    }
+
+    return 0;
+}
