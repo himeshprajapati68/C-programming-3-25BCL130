@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    int arr[10], n, size, i, j, temp;
+    char direction;
+
+    // Input array size
+    printf("Enter number of elements (max 10): ");
+    scanf("%d", &size);
+
+    // Input elements
+    printf("Enter %d numbers:\n", size);
+    for(i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input shift positions
+    printf("Enter number of positions to shift: ");
+    scanf("%d", &n);
+
+    // Input direction
+    printf("Enter direction (L for left, R for right): ");
+    scanf(" %c", &direction); // space before %c to consume newline
+
+    // Perform shift
+    n = n % size; // In case n > size
+    if(direction == 'L' || direction == 'l') {
+        // Left shift
+        for(i = 0; i < n; i++) {
+            temp = arr[0];
+            for(j = 0; j < size - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            arr[size - 1] = temp;
+        }
+    } else if(direction == 'R' || direction == 'r') {
+        // Right shift
+        for(i = 0; i < n; i++) {
+            temp = arr[size - 1];
+            for(j = size - 1; j > 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[0] = temp;
+        }
+    } else {
+        printf("Invalid direction!\n");
+        return 1;
+    }
+
+    // Print shifted array
+    printf("\nArray after shifting:\n");
+    for(i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
